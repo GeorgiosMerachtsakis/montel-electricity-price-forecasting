@@ -1,7 +1,7 @@
 # montel-electricity-price-forecasting
 # 📊 Time Series Forecasting of Renewable Energy Production
 
-This project is part of **Renewable Energy Forecasting with ML and SARIMAX** in the course *Introduction to Energy System Analytics* (MSc Sustainable Energy, DTU). It focuses on forecasting wind and solar power generation using both classical and deep learning models.
+This project is part of **Assigment_Description** in the course *Introduction to Energy System Analytics* (MSc Sustainable Energy, DTU). It focuses on forecasting wind and solar power generation using both classical and deep learning models.
 
 ## 📁 Contents
 
