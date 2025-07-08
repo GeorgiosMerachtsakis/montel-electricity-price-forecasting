@@ -62,16 +62,20 @@ def processdata_prices(df, t_start, t_end):
 t_start = pd.to_datetime(dt.datetime(2019, 1, 1, 0, 0, 0))
 t_end   = pd.to_datetime(dt.datetime(2021, 12, 31, 23, 0, 0))
 
-os.chdir("C:/Users/nicop/OneDrive/Documents/DTU/3 - 2022 Spring/31762 Introduction to Energy Analytics/Assignments/Assignment 2")
 
-cwd = os.getcwd()
-price_dir = os.path.join(cwd,'elspotprices_19to21.csv')
-df_price = pd.read_csv(price_dir)
+cwd = os.path.dirname(os.path.abspath(__file__))
+data_dir = os.path.join(cwd, "data")
 
+# Load electricity price data
+price_path = os.path.join(data_dir, "elspotprices_19to21.csv")
+df_price = pd.read_csv(price_path)
+
+# Preprocess price data
 df_price = processdata_prices(df_price, t_start, t_end)
 
-exo_dir = os.path.join(cwd,'exogenousvariables_19to21.csv')
-df_exo = pd.read_csv(exo_dir)
+# Load exogenous variable data (e.g., wind power)
+exo_path = os.path.join(data_dir, "exogenousvariables_19to21.csv")
+df_exo = pd.read_csv(exo_path)
 
 #%%
 
