@@ -6,6 +6,7 @@ Created on Sun Apr  3 15:37:38 2022
 @author: malthethingvad
 """
 #%% 1.0 Process data
+import os 
 import pandas as pd
 import pmdarima as pm
 from pmdarima import model_selection
@@ -17,8 +18,10 @@ from pmdarima.utils import plot_pacf
 import numpy as np
 
 # DATA IMPORT
-df = pd.read_csv('elspotprices_19to21.csv')
-df_X = pd.read_csv('exogenousvariables_19to21.csv')
+cwd = os.path.dirname(os.path.abspath(__file__))
+data_dir = os.path.join(cwd, "data")
+df = pd.read_csv(os.path.join(data_dir, "elspotprices_19to21.csv"))
+df_X = pd.read_csv(os.path.join(data_dir, "exogenousvariables_19to21.csv"))
 # Convert HourUTC to timestamp
 df['HourUTC'] = pd.to_datetime(df['HourUTC'])
 df_X['HourUTC'] = pd.to_datetime(df_X['HourUTC'])
