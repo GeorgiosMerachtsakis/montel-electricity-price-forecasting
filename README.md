@@ -1,5 +1,4 @@
 # montel-electricity-price-forecasting
-# 📊 Time Series Forecasting of Renewable Energy Production
 
 This repository was developed as part of a university assignment focused on forecasting hourly electricity prices in Denmark using both classical time series models and deep learning approaches. The project compares the performance of ARIMA, SARIMA, SARIMAX, and Neural network models for short- and medium-term price predictions.
 
