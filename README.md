@@ -1,59 +1,62 @@
 # montel-electricity-price-forecasting
 # 📊 Time Series Forecasting of Renewable Energy Production
 
-This project is part of **Assigment_Description** in the course *Introduction to Energy System Analytics* (MSc Sustainable Energy, DTU). It focuses on forecasting wind and solar power generation using both classical and deep learning models.
+This repository was developed as part of a university assignment focused on forecasting hourly electricity prices in Denmark using both classical time series models and deep learning approaches. The project compares the performance of ARIMA, SARIMA, SARIMAX, and Neural network models for short- and medium-term price predictions.
 
-## 📁 Contents
 
-- `Neural network prediction.py` – Implements a Temporal Convolutional Network (TCN) using the `darts` library to predict renewable energy production.
-- `Battery predictions.py` – Predicts battery behavior based on forecasted energy generation.
-- `SARIMAX prediction.py` – Uses a classical statistical approach (SARIMAX) to predict time series data.
+## Repository Structure
 
-> Note: This assignment was done in group format; this repository was prepared individually for educational and portfolio purposes.
+├── SARIMAX_Model.py                 # Classical forecasting models (ARIMA, SARIMA, SARIMAX)
+├── Neural network prediction.py       # Deep learning model (Temporal Convolutional Neural Network)
+├── elspotprices_19to21.csv         # Historical spot prices (input data)
+├── exogenousvariables_19to21.csv   # Wind power generation data (exogenous input)
+├── docs/
+│   └── Project_Description.pdf  # Project description and methodology
+└── README.md
 
----
 
-## 🔍 Problem Statement
+## Assignment: Forecasting Electricity Prices
+The goal of this assignment was to build and compare models that can forecast electricity spot prices in the Danish DK2 bidding zone. Predictions were evaluated for both hourly (short-term) and daily (medium-term) horizons.
 
-Forecasting renewable energy production is critical for grid planning and energy market operations. This project aims to compare traditional statistical forecasting (SARIMAX) with modern deep learning models (TCN) and assess their performance on wind and solar power time series data.
+## Models Implemented
 
----
+1. Classical Time Series Models
+Implemented in SARIMAX_Model.py
 
-## 📊 Data
+These models are based on statistical techniques used to predict future values based on past patterns:
 
-The input data consists of hourly measurements of wind and solar power production over a certain time period.
+ARIMA: Uses past prices and trends to forecast future values.
 
-### Expected structure (CSV):
-- Columns: `Time`, `Wind Power`, `Solar Power`, plus possible exogenous variables (temperature, etc.)
-- Frequency: Hourly
-- Format: `.csv` files
+SARIMA: Like ARIMA, but also includes seasonality (e.g., daily or weekly patterns).
 
-> The data path is hardcoded in the scripts. Make sure to update paths to match your local setup.
+SARIMAX: Extends SARIMA by also considering external factors — in this case, wind power generation as an input.
 
----
+We used the pmdarima library to train and evaluate these models on hourly spot price data from 2019 to 2020.
 
-## 🧠 Models
+2. Temporal Convolutional Neural Network (TCNN)
+Implemented in Neural network prediction.py
 
-### 1. Temporal Convolutional Network (TCN)
-- Implemented with the `darts` time series library
-- Learns temporal dependencies in sequential data
-- Suitable for long sequences and parallel processing
+This is a deep learning model that learns patterns over time using a type of neural network designed for sequences:
 
-### 2. SARIMAX
-- Seasonal AutoRegressive Integrated Moving Average with eXogenous regressors
-- Well-suited for data with strong seasonality and known external effects
+Built with PyTorch and the Darts forecasting library
 
-### 3. Battery Forecasting (Optional Extension)
-- Uses energy generation predictions to simulate battery charging/discharging
-- Simple rule-based or regression-based model (details in `Battery predictions.py`)
+Learns from both past prices and exogenous inputs like wind generation
 
----
+Can be used for both single-variable and multi-variable forecasting
 
-## ⚙️ How to Run
 
-### Prerequisites
+## Data Sources
 
-Install Python packages:
+All input data and assignment description are located in [`data/`](./data) and [`docs/`](./docs):
+- elspotprices_19to21.csv: Hourly day-ahead electricity prices for DK price zones
+- Assignment_Description.pdf: Problem statement and task overview
 
-```bash
-pip install darts pandas matplotlib scikit-learn
+## Requirements
+
+Python ≥ 3.8
+pandas
+numpy
+matplotlib
+pmdarima
+darts
+torch (PyTorch)
