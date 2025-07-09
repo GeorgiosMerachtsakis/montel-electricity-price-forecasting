@@ -2,7 +2,6 @@
 """
 Created on Sun Apr 10 15:21:19 2022
 
-@author: nicop
 """
 
 #%%
