@@ -3,7 +3,6 @@
 """
 Created on Sun Apr  3 15:37:38 2022
 
-@author: malthethingvad
 """
 #%% 1.0 Process data
 import os 
